@@ -1,0 +1,13 @@
+----------TABLES-------------
+- Users: Username - string, Email - string, password-digest - string
+- Substyles: name - string, parent_style_id - integer
+- ParentStyles: name - string
+- Recipes: name - string, user_id - integer, sub_style_id
+- Ingredients: name - string, quantity - string
+-----------------------------------
+-------------MODEL RELATIONS-----------------
+- User: has-many recipes | has-many substyles through recipes |
+- ParentStyle: belongs to a substyle
+- Recipe: Belongs to a user | has many ingredients | Belongs to a sub_style
+- Ingredient: Belongs to a recipe 
+---------------------------------------
