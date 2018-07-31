@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
 
+  def welcome 
+  end
 
   private
 
@@ -8,6 +10,6 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    User.find(sessionp[:user_id]) 
+    User.find(sessionp[:user_id])
   end
 end
