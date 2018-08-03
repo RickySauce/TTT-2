@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :already_logged_in, only: [:new, :create] 
 
   def new
     @user = User.new
@@ -16,7 +17,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    binding.pry
   end
 
   private

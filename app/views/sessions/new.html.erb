@@ -1,4 +1,13 @@
-<%=form_for @user do |f| %>
-<%= %>
+<%=form_for 'login' do |f| %>
+<% if flash[:message] %>
+ <div class="message"><%= flash[:message] %></div>
+ <br><br>
+<% end %>
+<b> Username: </b>
+<%= f.text_field :username %>
+<br><br>
+<b> Password: </b>
+<%= f.password_field :password %>
+<br><br>
 <%=f.submit 'Log In' %>
 <%end%>
