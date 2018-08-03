@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_action :already_logged_in, only: [:new, :create] 
+  before_action :already_logged_in, only: [:new, :create]
 
   def new
     @user = User.new
@@ -16,12 +16,16 @@ class SessionsController < ApplicationController
         render :new
       else
         session[:user_id] = @user.id
+        flash[:message] = "Successfully Signed In!"
         redirect_to user_path(@user)
       end
     end
   end
 
   def destroy
+    session.delete(:user_id)
+    flash[:message] = "Successfully Logged out!"
+    redirect_to root_path
   end
 
 end
