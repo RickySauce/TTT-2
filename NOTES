@@ -14,6 +14,7 @@
 ---------------------------------------
 ----------------
 recipe model
+-validation must have user_id 
 -upvote attribute
 -downvote attribute
 --------------------------
@@ -26,4 +27,4 @@ recipe model
     - sort by abv ------ activerecord scope
     -sort by name - asc ---- activerecord scope
     -sort by name - desc ---- activerecord scope
-    -custom search field ----- form_tag - search by hop profile ---- method fail safe- check for existence of name 
+    -custom search field ----- form_tag - search by hop profile ---- method fail safe- check for existence of name
