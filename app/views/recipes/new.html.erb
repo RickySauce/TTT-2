@@ -16,8 +16,14 @@
 <%=f.label "IBU" %>:
 <%=f.number_field :ibu %><br>
 <br><br>
-<%=f.label "Ingredients" %>
-
+<%=f.label "Ingredients" %>:
+<br><br>
+<%= f.label "Water" %>
+<%=fields_for :recipe_ingredients, @recipe.recipe_ingredients.build do |ri_fields| %>
+  <%= ri.fields.hidden_field 'type_name', 'Water' %>
+  <%=ri_fields.number_field :quantity%>
+  <%=ri_fields.text_field :measurement %>
+<%end%>
 <br><br>
 <%=f.label "Directions" %>:
 <br><br>

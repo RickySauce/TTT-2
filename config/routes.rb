@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show] do
     resources :recipes, only: [:show, :index, :edit, :delete, :new, :create]
   end
-  resources :recipes, only: [:show, :index]
+  resources :recipes, only: [:show, :index, :create]
 
   get '*path' => redirect('/')
 end
