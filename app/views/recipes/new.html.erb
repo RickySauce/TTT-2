@@ -1,5 +1,28 @@
 <h1>New Recipe</h1>
 <br><br>
 <%=form_for @recipe do |f| %>
+<%=f.label :name %>:
+<%=f.text_field :name%><br>
+<%=f.label 'Boil Size'%>:
+<%=f.number_field :boil_size %> Gallons <br>
+<%=f.label 'Batch Size' %>:
+<%=f.number_field :batch_size %> Gallons <br>
+<%=f.label "Original Gravity" %>:
+<%=f.number_field :og %> <br>
+<%=f.label "Final Gravity" %>:
+<%=f.number_field :fg %> <br>
+<%=f.label "ABV" %> %:
+<%=f.number_field :abv%><br>
+<%=f.label "IBU" %>:
+<%=f.number_field :ibu %><br>
+<br><br>
+<%=f.label "Ingredients" %>
+
+<br><br>
+<%=f.label "Directions" %>:
+<br><br>
+<%=f.text_area :description %>
+<br><br>
 <%=f.submit %>
+
 <%end%>
