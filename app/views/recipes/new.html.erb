@@ -1,6 +1,7 @@
 <h1>New Recipe</h1>
 <br><br>
 <%=form_for @recipe do |f| %>
+<%=f.hidden_field :user_id, value: @user.id%>
 <%=f.label :name %>:
 <%=f.text_field :name%><br>
 <%=f.label "Sub Style"%>
