@@ -3,6 +3,8 @@
 <%=form_for @recipe do |f| %>
 <%=f.label :name %>:
 <%=f.text_field :name%><br>
+<%=f.label "Sub Style"%>
+<%=f.text_field :sub_style %><br>
 <%=f.label 'Boil Size'%>:
 <%=f.number_field :boil_size %> Gallons <br>
 <%=f.label 'Batch Size' %>:
@@ -18,16 +20,17 @@
 <br><br>
 <%=f.label "Ingredients" %>:
 <br><br>
-<%= f.label "Water" %>
-<%=fields_for :recipe_ingredients, @recipe.recipe_ingredients.build do |ri_fields| %>
-  <%= ri.fields.hidden_field 'type_name', 'Water' %>
-  <%=ri_fields.number_field :quantity%>
-  <%=ri_fields.text_field :measurement %>
+<%=fields_for :ingredients, @recipe.ingredients.build do |ingredient_fields| %>
+  <%=ingredient_fields.label "Hops" %>:
+  <%=ingredient_fields.collection_check_boxes :id, Ingredient.get_hops, :id, :name%>
+  <br><br>
+  <%=ingredient_fields.label "Malts"%>:
+  <%=ingredient_fields.collection_check_boxes :id, Ingredient.get_malts, :id, :name %>
+  <br><br>
+  <%=ingredient_fields.label "Yeast"%>:
+  <%=ingredient_fields.collection_check_boxes :id, Ingredient.get_yeast, :id, :name %>
+  <br><br>
 <%end%>
-<br><br>
-<%=f.label "Directions" %>:
-<br><br>
-<%=f.text_area :description %>
 <br><br>
 <%=f.submit %>
 

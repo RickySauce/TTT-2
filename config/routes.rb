@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :recipes, only: [:show, :index, :edit, :delete, :new, :create]
   end
   resources :recipes, only: [:show, :index, :create]
-
+  resources :recipes, only: [:create, :edit, :show] do
+      resources :recipe_ingredients, only: [:new, :create, :edit]
+  end
   get '*path' => redirect('/')
 end

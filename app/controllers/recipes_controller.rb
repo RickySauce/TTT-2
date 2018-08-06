@@ -21,8 +21,8 @@ class RecipesController < ApplicationController
         :abv,
         :ibu,
         :description,
-        :recipe_ingredients[],
-        :recipe_ingredients_attributes
+        :ingredients[],
+        :ingredients_attributes
       )
     end
 
