@@ -20,9 +20,9 @@ class RecipesController < ApplicationController
         :fg,
         :abv,
         :ibu,
+        :user_id,
         :description,
-        :ingredients[],
-        :ingredients_attributes
+        :recipe_ingredients_attributes
       )
     end
 

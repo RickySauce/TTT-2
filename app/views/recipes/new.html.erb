@@ -4,8 +4,6 @@
 <%=f.hidden_field :user_id, value: @user.id%>
 <%=f.label :name %>:
 <%=f.text_field :name%><br>
-<%=f.label "Sub Style"%>
-<%=f.text_field :sub_style %><br>
 <%=f.label 'Boil Size'%>:
 <%=f.number_field :boil_size %> Gallons <br>
 <%=f.label 'Batch Size' %>:
@@ -20,18 +18,21 @@
 <%=f.number_field :ibu %><br>
 <br><br>
 <%=f.label "Ingredients" %>:
-<br><br>
-<%=fields_for :ingredients, @recipe.ingredients.build do |ingredient_fields| %>
-  <%=ingredient_fields.label "Hops" %>:
-  <%=ingredient_fields.collection_check_boxes :id, Ingredient.get_hops, :id, :name%>
-  <br><br>
-  <%=ingredient_fields.label "Malts"%>:
-  <%=ingredient_fields.collection_check_boxes :id, Ingredient.get_malts, :id, :name %>
-  <br><br>
-  <%=ingredient_fields.label "Yeast"%>:
-  <%=ingredient_fields.collection_check_boxes :id, Ingredient.get_yeast, :id, :name %>
-  <br><br>
-<%end%>
+  <%=fields_for :recipe_ingredients, @recipe.recipe_ingredients.build do |i| %>
+    <br><br>
+    <%=i.label "Hops" %>:
+    <br><br>
+    <%=i.collection_select :ingredient_id, Ingredient.get_hops, :id, :name %>
+    <%=i.label :quantity %>:
+    <%=i.number_field :quantity%>
+    <%=i.label :measurement %>:
+    <%=i.text_field :measurement %>
+    <%=i.collection_select :ingredient_id, Ingredient.get_hops, :id, :name %>
+    <%=i.label :quantity %>:
+    <%=i.number_field :quantity%>
+    <%=i.label :measurement %>:
+    <%=i.text_field :measurement %>
+  <%end%>
 <br><br>
 <%=f.submit %>
 
